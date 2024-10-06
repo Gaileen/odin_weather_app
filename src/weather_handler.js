@@ -19,16 +19,18 @@ function fetchWeather(location) {
 
 // Process JSON to get only the data we need.
 async function processWeather(location) {
-    //need: currentConditions.temp, currentConditions.feelslike, currentConditions.conditions
-    // currentConditions.datetime
-    // .days (an array of 15)
     try {
         const data = await fetchWeather(location);
         if (data) {
             const full_address = data.resolvedAddress;
-            console.log(data.days);
+            const week = []; // 7-day weather
 
-            return {}
+            data.days.splice(8).forEach(day => {
+                let {datetime, temp, tempmin, tempmax, description, icon} = day;
+                week.push({datetime, temp, tempmin, tempmax, description, icon});
+            });
+
+            return { full_address, week};
         }
     } catch(e) {
         console.log(e);
