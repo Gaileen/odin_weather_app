@@ -1,0 +1,55 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: var(--smiski-green);
+}
+
+:root {
+    --smiski-green: rgb(193, 205, 177);
+    --dark-green: rgb(70, 81, 55);
+}
+
+/* Page layout */
+#content {
+    height: 100%;
+    color: var(--dark-green);
+    margin: 125px 50px 0 50px;
+    padding: 10px;
+    text-align: center;
+
+    display: grid;
+    grid-template-rows: 15% 5% 80%;
+}
+
+/* Header styling */
+header {
+    /* (in a font context) */
+    /* rem = relative to doc's font; em = relative to parent's font */
+    /* font-size: 1.5rem; */
+    font-size: 1.5em;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Search styling */
+/* ... */
+
+/* Weather content styling */
+#weather-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 50px; 
+}
+
+.day-container {
+    background-color: white;
+    height: 250px;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    padding: 15px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
