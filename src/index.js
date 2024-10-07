@@ -1,4 +1,8 @@
 import "./styles.css";
-import { processWeather } from "./weather_handler";
+import loadPage from "./load_content";
 
-processWeather("london");
+// const location_btn = document.getElementById("location-btn");
+// ["click", "keydown"].forEach(event => {
+//     location_btn.addEventListener(event, loadPage());
+// });
+loadPage();

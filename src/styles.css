@@ -10,7 +10,7 @@ html, body {
 }
 
 /* Page layout */
-#content {
+.content {
     height: 100%;
     color: var(--dark-green);
     margin: 125px 50px 0 50px;
@@ -37,7 +37,7 @@ h1 {
 /* ... */
 
 /* Weather content styling */
-#weather-content {
+.weather-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 50px; 

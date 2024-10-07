@@ -7,13 +7,10 @@ function fetchWeather(location) {
     // **Add return in front of fetch call so fetch chain is actually returned
     return fetch(url + location + "?key=" + key, {mode: 'cors'})
         .then(function(response) {
-            if (!response.ok) {
-                console.log("Network error: " + response.statusText);
-            }
             return response.json();
         })
         .catch(e => {
-            console.log(e);
+            console.log(location + " is not a valid location.", e);
         });
 }
 
@@ -23,18 +20,18 @@ async function processWeather(location) {
         const data = await fetchWeather(location);
         if (data) {
             const full_address = data.resolvedAddress;
-            const week = []; // 7-day weather
+            const week_data = []; // 7-day weather
 
             data.days.splice(8).forEach(day => {
                 let {datetime, temp, tempmin, tempmax, description, icon} = day;
-                week.push({datetime, temp, tempmin, tempmax, description, icon});
+                week_data.push({datetime, temp, tempmin, tempmax, description, icon});
             });
-
-            return { full_address, week};
+            
+            return { full_address, week_data };
         }
     } catch(e) {
         console.log(e);
     }
 }
 
-export { processWeather };
+export default processWeather;
