@@ -7,18 +7,20 @@ html, body {
 :root {
     --smiski-green: rgb(193, 205, 177);
     --dark-green: rgb(70, 81, 55);
+    --border-corner-size: 10px;
 }
 
 /* Page layout */
 .content {
     height: 100%;
     color: var(--dark-green);
-    margin: 125px 50px 0 50px;
+    margin-top: 125px;
+
     padding: 10px;
     text-align: center;
-
-    display: grid;
-    grid-template-rows: 15% 5% 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Header styling */
@@ -27,6 +29,7 @@ header {
     /* rem = relative to doc's font; em = relative to parent's font */
     /* font-size: 1.5rem; */
     font-size: 1.5em;
+    padding: 0;
 }
 
 h1 {
@@ -34,19 +37,34 @@ h1 {
 }
 
 /* Search styling */
-/* ... */
+form > input {
+    border-radius: var(--border-corner-size);
+    border-color: white;
+}
+
+form > button {
+    border-radius: var(--border-corner-size);
+    border-color: buttonface;
+}
 
 /* Weather content styling */
 .weather-content {
+    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 50px; 
 }
 
+@media (max-width: 500px) {
+    .weather-content {
+        grid-template-columns: repeat(auto-fit, 100%);
+    }
+}
+
 .day-container {
     background-color: white;
-    height: 250px;
-    border-radius: 10px;
+    max-height: 250px;
+    border-radius: var(--border-corner-size);
     font-size: 1.25rem;
     padding: 15px;
 
