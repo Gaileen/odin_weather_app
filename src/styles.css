@@ -10,13 +10,12 @@ html, body {
     --border-corner-size: 10px;
 }
 
-/* Page layout */
+/* Entire Page layout */
 .content {
     height: 100%;
-    color: var(--dark-green);
     margin-top: 125px;
-
     padding: 10px;
+    font-family: Verdana, sans-serif;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -29,6 +28,7 @@ header {
     /* rem = relative to doc's font; em = relative to parent's font */
     /* font-size: 1.5rem; */
     font-size: 1.5em;
+    color: var(--dark-green);
     padding: 0;
 }
 
@@ -70,4 +70,9 @@ form > button {
 
     display: grid;
     grid-template-columns: repeat(2, 50%);
+    align-items: center; /* center items vertically */
+}
+
+.day-container > img {
+    max-height: 250px;
 }
